@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <title>تطبيق Blida</title>
+    <style>
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; background: #000; }
+        #player { width: 100%; height: 100%; }
+    </style>
+</head>
+<body>
+    <div id="player"></div>
+
+    <!-- تحميل محاكي فلاش من السحابة مباشرة -->
+    <script src="https://unpkg.com/@ruffle-rs/ruffle"></script>
+    <script>
+        window.RufflePlayer = window.RufflePlayer || {};
+        window.addEventListener("load", () => {
+            const ruffle = window.RufflePlayer.newest();
+            const player = ruffle.createPlayer();
+            const container = document.getElementById("player");
+            container.appendChild(player);
+            // تشغيل ملف البرنامج مباشرة
+            player.load("Blida.exe");
+        });
+    </script>
+</body>
+</html>
